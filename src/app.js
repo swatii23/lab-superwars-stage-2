@@ -27,10 +27,16 @@ const initPlayers = (players) => {
     // Create players using for loop
     // Type your code here
 
-    players.forEach(ele => {
+    players.forEach((ele, i) => {
         let player = {
-            name:
+            name: ele,
+            strength: getRandomStrength(),
+            image: "images/super-"+(i+1)+".png",
+            type: Math.random() < 0.5 ? 'hero' : 'villain'
         }
+
+        detailedPlayers.push(player);
+        console.log(detailedPlayers);
     })
 
     return detailedPlayers;
@@ -51,6 +57,18 @@ const buildPlayers = (players, type) => {
     // Loop through players and accumulate HTML template
     // depending of type of player(hero|villain)
     // Type your code here
+
+    players.forEach(player => {
+        if(player.type == type){
+            fragment += `
+            <div class="player">
+                <img src="${player.image}" alt="">
+                <div class="name">${player.name}</div>
+                <div class="strength">${player.strength}</div>
+            </div>
+            `
+        }
+    })
 
     return fragment;
 }
