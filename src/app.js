@@ -27,6 +27,12 @@ const initPlayers = (players) => {
     // Create players using for loop
     // Type your code here
 
+    players.forEach(ele => {
+        let player = {
+            name:
+        }
+    })
+
     return detailedPlayers;
 }
 
@@ -34,6 +40,9 @@ const initPlayers = (players) => {
 const getRandomStrength = () => {
     // Return a random integer (0,100]
     // Note: You can use Math.random() and Math.ceil()
+
+    const strength = Math.ceil(Math.random() * 101);
+    return strength;
 }
 
 const buildPlayers = (players, type) => {
